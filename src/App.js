@@ -1,5 +1,9 @@
 import React from 'react';
-import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import {
+  BrowserRouter,
+  Route,
+  Switch
+} from 'react-router-dom'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Knowledges from './pages/Knowledges'
@@ -10,11 +14,13 @@ const App = () => {
   return (
       <>
         <BrowserRouter>
-          <Route path="/" component={Home}/>
-          <Route path="/competances" component={Knowledges}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/portfolio" component={Portfolio}/>
-          <Route  component={NotFound}/>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/competances" exact component={Knowledges}/>
+            <Route path="/contact" exact component={Contact}/>
+            <Route path="/portfolio" exact component={Portfolio}/>
+            <Route component={NotFound} />    
+          </Switch>
         </BrowserRouter>
       </>
   );
